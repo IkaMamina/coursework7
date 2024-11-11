@@ -8,7 +8,7 @@ from habits.permissions import IsOwner
 from habits.serializers import HabitSerializer
 
 
-class HabitsListView(generics.ListAPIView):
+class MyHabitsListView(generics.ListAPIView):
     """Список привычек"""
 
     serializer_class = HabitSerializer

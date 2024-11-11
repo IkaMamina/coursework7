@@ -35,18 +35,18 @@ class HabitTestCase(APITestCase):
 
         url = reverse('habits:habits')
         data = {
-            "user": "self.user",
+            "user": self.user,
             "place": "на берегу",
             "duration": 25,
             "periodicity": 3,
             "action": "бег",
             "pleasant_habit": True,
-            "reward": "сладкое",
             "is_public": True
         }
         response = self.client.post(
             url, data
         )
+        print(response.json())
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(
             Habit.objects.all().count(), 2
